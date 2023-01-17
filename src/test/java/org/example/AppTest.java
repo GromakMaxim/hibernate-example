@@ -1,13 +1,16 @@
 package org.example;
 
+import org.example.model.UserService;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class AppTest {
     @Test
     public void shouldAnswerWithTrue() {
-        assertTrue(true);
+        UserService userService = new UserService();
+        var person = userService.findAutoById(3);
+        person.setUsername("Not a Pavel");
+
+        userService.updateUser(person);
     }
 }
